@@ -27,6 +27,8 @@ Installion the application into /opt folder:
 # systemctl enable turtamqtt
 # mkdir /etc/turtamqtt
 # cp /opt/turtamqtt/config.yaml.sample /etc/turtamqtt/config.yaml
+# cd /opt/turtamqtt
+# poetry install
 ```
 You have to edit variables in **/etc/turtamqtt/config.yaml file and start the service:
 
@@ -38,6 +40,7 @@ That's all.
 
 TODO:
 
-* Create documentation
+* Create logging subsystem
 * Create exception handling mechanism
+* Create documentation
 

@@ -23,10 +23,7 @@ class Topic:
             })
 
         status = self.pub_callback(self.state_topic, msg)
-        if status == 0:
-            print('Send {} to topic {}'.format(msg, self.state_topic))
-        else:
-            print('Failed to send message to topic {}'.format(self.state_topic))
+        return True if status == 0 else False
     
     def on_message(self, userdata, msg):
         pass
@@ -43,12 +40,8 @@ class Topic:
             "stat_t": "~/state",
             "schema": "json",
         }
-
         status = self.pub_callback(self.discovery_topic, json.dumps(device_config))
-        if status == 0:
-            print('Send {} to discovery topic {}'.format(json.dumps(device_config), self.discovery_topic))
-        else:
-            print('Failed to send message to topic {}'.format(self.discovery_topic))
+        return True if status == 0 else False
 
     def set_state(self, value):
         pass
