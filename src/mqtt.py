@@ -28,17 +28,16 @@ class MQTT:
         return topic
 
     def on_connect(self, client, userdata, flags, status):
-        print('on_connect callback is called')
         if status == 0:
             print('Connected to {} on port {}'.format(self.broker, self.port))
-            is_connected = True
+            self.is_connected = True
         else:
             print('Connection failed to {} on port {} with status code {}'.format(
                 self.broker,
                 self.port,
                 status
                 ))
-            is_connected = False
+            self.is_connected = False
 
     def connect(self):
         self.client.username_pw_set(self.username, self.password)
@@ -52,10 +51,6 @@ class MQTT:
 
     def on_message(self, client, userdata, msg):
         print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
-
-# client.on_publish = on_publish
-# client.on_subscribed = on_subscribed
-# client.on_log = on_log
 
     def subscribe(self, topic):
         self.client.subscribe(topic)

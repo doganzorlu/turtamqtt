@@ -43,4 +43,5 @@ TODO:
 * Create logging subsystem
 * Create exception handling mechanism
 * Create documentation
+* Create on_publish, on_subscribed, on_log implementation
 
