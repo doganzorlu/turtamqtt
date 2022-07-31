@@ -1,0 +1,15 @@
+[Unit]
+Description=turtamqtt
+
+[Service]
+Restart=on-failure
+Type=simple
+User=root
+WorkingDirectory=/opt/turtamqtt
+ExecStart=/usr/local/bin/poetry /opt/turtamqtt/turtamqtt.py
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=turtamqtt
+
+[Install]
+WantedBy=multi-user.target
